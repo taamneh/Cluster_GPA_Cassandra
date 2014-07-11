@@ -607,9 +607,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.2!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.2!apply-macro.jar
-[debug] :: resolution report :: resolve 1075ms :: artifacts dl 51ms
+[debug] :: resolution report :: resolve 1049ms :: artifacts dl 46ms
 [debug] 	report for firstakka#firstakka$sbt_2.10;1.0 default produced in C:\Users\Salah\Desktop\Cluster_GPA_Cassandra\target\resolution-cache\reports\firstakka-firstakka$sbt_2.10-default.xml
-[debug] 	resolve done (1075ms resolve - 51ms download)
+[debug] 	resolve done (1049ms resolve - 46ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: firstakka#firstakka$sources_2.10;1.0
 [debug] 	confs: [default]
@@ -952,6 +952,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_2;0.13.2!precompiled-2_9_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_3;0.13.2!precompiled-2_9_3.jar(src)
 [debug] 	[NOT REQUIRED] org.jetbrains#sbt-structure;2.4.0!sbt-structure.jar(src)
-[debug] :: resolution report :: resolve 560ms :: artifacts dl 129ms
+[debug] :: resolution report :: resolve 401ms :: artifacts dl 438ms
 [debug] 	report for firstakka#firstakka$sources_2.10;1.0 default produced in C:\Users\Salah\Desktop\Cluster_GPA_Cassandra\target\resolution-cache\reports\firstakka-firstakka$sources_2.10-default.xml
-[debug] 	resolve done (560ms resolve - 129ms download)
+[debug] 	resolve done (401ms resolve - 438ms download)

@@ -41,4 +41,4 @@
 [0m[[0mdebug[0m] [0m	C:\Users\Salah\.ivy2\cache\org.fusesource\sigar\jars\sigar-1.6.4.jar[0m
 [0m[[0mdebug[0m] [0m	C:\Users\Salah\.ivy2\cache\log4j\log4j\jars\log4j-1.2.15.jar[0m
 [0m[[0mdebug[0m] [0m	Thread run-main-0 exited.[0m
-[0m[[0mdebug[0m] [0mWaiting for thread New I/O worker #2 to terminate.[0m
+[0m[[0mdebug[0m] [0mWaiting for thread ClusterSystem-akka.actor.default-dispatcher-16 to terminate.[0m

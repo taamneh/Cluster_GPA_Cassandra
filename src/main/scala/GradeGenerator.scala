@@ -65,6 +65,8 @@ object GradeGenerator {
 
     val system = ActorSystem("ClusterSystem", config)
     val producer = system.actorOf(Props[GradeGenerator], name = "producer")
-
+   ////////////
+    val xx = 22
+    println(xx)
   }
 }
