@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_cluster_gpa_cassandra-build" default="compile.module.cluster_gpa_cassandra-build">
+  <dirname property="module.cluster_gpa_cassandra-build.basedir" file="${ant.file.module_cluster_gpa_cassandra-build}"/>
+  
+  <property name="module.jdk.home.cluster_gpa_cassandra-build" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.cluster_gpa_cassandra-build" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.cluster_gpa_cassandra-build" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.cluster_gpa_cassandra-build" value="-encoding UTF-8 -source 1.7 ${compiler.args}"/>
+  
+  <property name="cluster_gpa_cassandra-build.output.dir" value="${module.cluster_gpa_cassandra-build.basedir}/../../project/target/idea-classes"/>
+  <property name="cluster_gpa_cassandra-build.testoutput.dir" value="${module.cluster_gpa_cassandra-build.basedir}/../../project/target/idea-test-classes"/>
+  
+  <path id="cluster_gpa_cassandra-build.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cluster_gpa_cassandra-build.module.production.classpath">
+    <path refid="${module.jdk.classpath.cluster_gpa_cassandra-build}"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/jansi.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/jline.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-compiler.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-library.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-reflect.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/actions-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/api-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/apply-macro-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/cache-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/classfile-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/classpath-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/collections-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/command-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compile-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compiler-integration-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compiler-ivy-integration-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/completion-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/control-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/cross-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/incremental-compiler-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/io-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/ivy-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/ivy-2.3.0.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/jline-2.11.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/jsch-0.1.46.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/launcher-interface-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/logging-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/main-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/main-settings-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/persist-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/process-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/relation-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/run-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/sbinary_2.10-0.4.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/sbt-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/scala-reflect-2.10.3.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/task-system-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/tasks-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/test-agent-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/test-interface-1.0.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/testing-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/tracking-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/xsbti/interface-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.ivy2/cache/scala_2.10/sbt_0.13/org.jetbrains/sbt-structure/jars/sbt-structure-2.4.0.jar"/>
+  </path>
+  
+  <path id="cluster_gpa_cassandra-build.runtime.production.module.classpath">
+    <pathelement location="${cluster_gpa_cassandra-build.output.dir}"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/jansi.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/jline.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-compiler.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-library.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-reflect.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/actions-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/api-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/apply-macro-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/cache-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/classfile-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/classpath-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/collections-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/command-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compile-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compiler-integration-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compiler-ivy-integration-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/completion-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/control-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/cross-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/incremental-compiler-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/io-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/ivy-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/ivy-2.3.0.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/jline-2.11.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/jsch-0.1.46.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/launcher-interface-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/logging-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/main-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/main-settings-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/persist-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/process-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/relation-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/run-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/sbinary_2.10-0.4.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/sbt-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/scala-reflect-2.10.3.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/task-system-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/tasks-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/test-agent-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/test-interface-1.0.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/testing-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/tracking-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/xsbti/interface-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.ivy2/cache/scala_2.10/sbt_0.13/org.jetbrains/sbt-structure/jars/sbt-structure-2.4.0.jar"/>
+  </path>
+  
+  <path id="cluster_gpa_cassandra-build.module.classpath">
+    <path refid="${module.jdk.classpath.cluster_gpa_cassandra-build}"/>
+    <pathelement location="${cluster_gpa_cassandra-build.output.dir}"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/jansi.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/jline.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-compiler.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-library.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-reflect.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/actions-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/api-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/apply-macro-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/cache-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/classfile-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/classpath-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/collections-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/command-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compile-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compiler-integration-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compiler-ivy-integration-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/completion-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/control-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/cross-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/incremental-compiler-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/io-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/ivy-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/ivy-2.3.0.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/jline-2.11.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/jsch-0.1.46.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/launcher-interface-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/logging-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/main-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/main-settings-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/persist-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/process-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/relation-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/run-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/sbinary_2.10-0.4.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/sbt-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/scala-reflect-2.10.3.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/task-system-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/tasks-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/test-agent-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/test-interface-1.0.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/testing-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/tracking-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/xsbti/interface-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.ivy2/cache/scala_2.10/sbt_0.13/org.jetbrains/sbt-structure/jars/sbt-structure-2.4.0.jar"/>
+  </path>
+  
+  <path id="cluster_gpa_cassandra-build.runtime.module.classpath">
+    <pathelement location="${cluster_gpa_cassandra-build.testoutput.dir}"/>
+    <pathelement location="${cluster_gpa_cassandra-build.output.dir}"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/jansi.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/jline.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-compiler.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-library.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/lib/scala-reflect.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/actions-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/api-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/apply-macro-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/cache-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/classfile-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/classpath-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/collections-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/command-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compile-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compiler-integration-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/compiler-ivy-integration-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/completion-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/control-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/cross-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/incremental-compiler-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/io-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/ivy-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/ivy-2.3.0.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/jline-2.11.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/jsch-0.1.46.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/launcher-interface-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/logging-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/main-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/main-settings-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/persist-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/process-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/relation-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/run-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/sbinary_2.10-0.4.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/sbt-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/scala-reflect-2.10.3.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/task-system-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/tasks-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/test-agent-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/test-interface-1.0.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/testing-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/tracking-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.IdeaIC13/system/SBT/boot/scala-2.10.3/org.scala-sbt/sbt/0.13.2/xsbti/interface-0.13.2.jar"/>
+    <pathelement location="${basedir}/../../.ivy2/cache/scala_2.10/sbt_0.13/org.jetbrains/sbt-structure/jars/sbt-structure-2.4.0.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cluster_gpa_cassandra-build">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cluster_gpa_cassandra-build">
+    <patternset refid="excluded.from.module.cluster_gpa_cassandra-build"/>
+  </patternset>
+  
+  
+  <target name="compile.module.cluster_gpa_cassandra-build" depends="compile.module.cluster_gpa_cassandra-build.production,compile.module.cluster_gpa_cassandra-build.tests" description="Compile module cluster_gpa_cassandra-build"/>
+  
+  <target name="compile.module.cluster_gpa_cassandra-build.production" depends="register.custom.compilers" description="Compile module cluster_gpa_cassandra-build; production classes"/>
+  
+  <target name="compile.module.cluster_gpa_cassandra-build.tests" depends="register.custom.compilers,compile.module.cluster_gpa_cassandra-build.production" description="compile module cluster_gpa_cassandra-build; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.cluster_gpa_cassandra-build" description="cleanup module">
+    <delete dir="${cluster_gpa_cassandra-build.output.dir}"/>
+    <delete dir="${cluster_gpa_cassandra-build.testoutput.dir}"/>
+  </target>
+</project>

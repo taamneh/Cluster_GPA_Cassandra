@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_cluster_gpa" default="compile.module.cluster_gpa">
+  <dirname property="module.cluster_gpa.basedir" file="${ant.file.module_cluster_gpa}"/>
+  
+  <property name="module.jdk.home.cluster_gpa" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.cluster_gpa" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.cluster_gpa" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.cluster_gpa" value="-encoding UTF-8 -source 1.7 ${compiler.args}"/>
+  
+  <property name="cluster_gpa.output.dir" value="${module.cluster_gpa.basedir}/../../target/scala-2.10/classes"/>
+  <property name="cluster_gpa.testoutput.dir" value="${module.cluster_gpa.basedir}/../../target/scala-2.10/test-classes"/>
+  
+  <path id="cluster_gpa.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cluster_gpa.module.production.classpath">
+    <path refid="${module.jdk.classpath.cluster_gpa}"/>
+    <path refid="library.sbt:_org.scala-lang:scala-library:2.10.3.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback:logback-classic:1.0.13.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback:logback-core:1.0.13.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback.contrib:logback-json-classic:0.1.2.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback.contrib:logback-json-core:0.1.2.classpath"/>
+    <path refid="library.sbt:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.sbt:_com.google.guava:guava:12.0.classpath"/>
+    <path refid="library.sbt:_com.google.protobuf:protobuf-java:2.5.0.classpath"/>
+    <path refid="library.sbt:_com.typesafe:config:1.2.0.classpath"/>
+    <path refid="library.sbt:_com.typesafe:scalalogging-slf4j_2.10:1.0.1.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-actor_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-persistence-experimental_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-slf4j_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-testkit_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_org.fusesource.hawtjni:hawtjni-runtime:1.8.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni:1.7.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-all:1.7.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-linux32:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-linux64:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-osx:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-win32:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-win64:1.5.classpath"/>
+    <path refid="library.sbt:_org.iq80.leveldb:leveldb:0.5.classpath"/>
+    <path refid="library.sbt:_org.iq80.leveldb:leveldb-api:0.5.classpath"/>
+    <path refid="library.sbt:_org.scala-lang:scala-reflect:2.10.0.classpath"/>
+    <path refid="library.sbt:_org.slf4j:log4j-over-slf4j:1.7.1.classpath"/>
+    <path refid="library.sbt:_org.slf4j:slf4j-api:1.7.5.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-cluster_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-contrib_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-multi-node-testkit_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-remote_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_io.netty:netty:3.8.0.final.classpath"/>
+    <path refid="library.sbt:_log4j:log4j:1.2.15.classpath"/>
+    <path refid="library.sbt:_org.fusesource:sigar:1.6.4.classpath"/>
+    <path refid="library.sbt:_org.uncommons.maths:uncommons-maths:1.2.2a.classpath"/>
+  </path>
+  
+  <path id="cluster_gpa.runtime.production.module.classpath">
+    <pathelement location="${cluster_gpa_cassandra.output.dir}"/>
+    <path refid="library.sbt:_org.scala-lang:scala-library:2.10.3.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback:logback-classic:1.0.13.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback:logback-core:1.0.13.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback.contrib:logback-json-classic:0.1.2.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback.contrib:logback-json-core:0.1.2.classpath"/>
+    <path refid="library.sbt:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.sbt:_com.google.guava:guava:12.0.classpath"/>
+    <path refid="library.sbt:_com.google.protobuf:protobuf-java:2.5.0.classpath"/>
+    <path refid="library.sbt:_com.typesafe:config:1.2.0.classpath"/>
+    <path refid="library.sbt:_com.typesafe:scalalogging-slf4j_2.10:1.0.1.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-actor_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-persistence-experimental_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-slf4j_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-testkit_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_org.fusesource.hawtjni:hawtjni-runtime:1.8.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni:1.7.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-all:1.7.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-linux32:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-linux64:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-osx:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-win32:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-win64:1.5.classpath"/>
+    <path refid="library.sbt:_org.iq80.leveldb:leveldb:0.5.classpath"/>
+    <path refid="library.sbt:_org.iq80.leveldb:leveldb-api:0.5.classpath"/>
+    <path refid="library.sbt:_org.scala-lang:scala-reflect:2.10.0.classpath"/>
+    <path refid="library.sbt:_org.slf4j:log4j-over-slf4j:1.7.1.classpath"/>
+    <path refid="library.sbt:_org.slf4j:slf4j-api:1.7.5.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-cluster_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-contrib_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-multi-node-testkit_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-remote_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_io.netty:netty:3.8.0.final.classpath"/>
+    <path refid="library.sbt:_log4j:log4j:1.2.15.classpath"/>
+    <path refid="library.sbt:_org.fusesource:sigar:1.6.4.classpath"/>
+    <path refid="library.sbt:_org.uncommons.maths:uncommons-maths:1.2.2a.classpath"/>
+  </path>
+  
+  <path id="cluster_gpa.module.classpath">
+    <path refid="${module.jdk.classpath.cluster_gpa}"/>
+    <pathelement location="${cluster_gpa_cassandra.output.dir}"/>
+    <path refid="library.sbt:_org.scala-lang:scala-library:2.10.3.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback:logback-classic:1.0.13.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback:logback-core:1.0.13.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback.contrib:logback-json-classic:0.1.2.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback.contrib:logback-json-core:0.1.2.classpath"/>
+    <path refid="library.sbt:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.sbt:_com.google.guava:guava:12.0.classpath"/>
+    <path refid="library.sbt:_com.google.protobuf:protobuf-java:2.5.0.classpath"/>
+    <path refid="library.sbt:_com.typesafe:config:1.2.0.classpath"/>
+    <path refid="library.sbt:_com.typesafe:scalalogging-slf4j_2.10:1.0.1.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-actor_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-persistence-experimental_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-slf4j_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-testkit_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_org.fusesource.hawtjni:hawtjni-runtime:1.8.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni:1.7.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-all:1.7.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-linux32:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-linux64:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-osx:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-win32:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-win64:1.5.classpath"/>
+    <path refid="library.sbt:_org.iq80.leveldb:leveldb:0.5.classpath"/>
+    <path refid="library.sbt:_org.iq80.leveldb:leveldb-api:0.5.classpath"/>
+    <path refid="library.sbt:_org.scala-lang:scala-reflect:2.10.0.classpath"/>
+    <path refid="library.sbt:_org.scalatest:scalatest_2.10:2.0.classpath"/>
+    <path refid="library.sbt:_org.scalaz:scalaz-concurrent_2.10:7.0.2.classpath"/>
+    <path refid="library.sbt:_org.scalaz:scalaz-core_2.10:7.0.2.classpath"/>
+    <path refid="library.sbt:_org.scalaz:scalaz-effect_2.10:7.0.2.classpath"/>
+    <path refid="library.sbt:_org.slf4j:log4j-over-slf4j:1.7.1.classpath"/>
+    <path refid="library.sbt:_org.slf4j:slf4j-api:1.7.5.classpath"/>
+    <path refid="library.sbt:_org.specs2:specs2_2.10:2.2.3.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-cluster_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-contrib_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-multi-node-testkit_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-remote_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_io.netty:netty:3.8.0.final.classpath"/>
+    <path refid="library.sbt:_log4j:log4j:1.2.15.classpath"/>
+    <path refid="library.sbt:_org.fusesource:sigar:1.6.4.classpath"/>
+    <path refid="library.sbt:_org.uncommons.maths:uncommons-maths:1.2.2a.classpath"/>
+  </path>
+  
+  <path id="cluster_gpa.runtime.module.classpath">
+    <pathelement location="${cluster_gpa_cassandra.testoutput.dir}"/>
+    <pathelement location="${cluster_gpa_cassandra.output.dir}"/>
+    <path refid="library.sbt:_org.scala-lang:scala-library:2.10.3.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback:logback-classic:1.0.13.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback:logback-core:1.0.13.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback.contrib:logback-json-classic:0.1.2.classpath"/>
+    <path refid="library.sbt:_ch.qos.logback.contrib:logback-json-core:0.1.2.classpath"/>
+    <path refid="library.sbt:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.sbt:_com.google.guava:guava:12.0.classpath"/>
+    <path refid="library.sbt:_com.google.protobuf:protobuf-java:2.5.0.classpath"/>
+    <path refid="library.sbt:_com.typesafe:config:1.2.0.classpath"/>
+    <path refid="library.sbt:_com.typesafe:scalalogging-slf4j_2.10:1.0.1.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-actor_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-persistence-experimental_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-slf4j_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-testkit_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_org.fusesource.hawtjni:hawtjni-runtime:1.8.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni:1.7.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-all:1.7.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-linux32:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-linux64:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-osx:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-win32:1.5.classpath"/>
+    <path refid="library.sbt:_org.fusesource.leveldbjni:leveldbjni-win64:1.5.classpath"/>
+    <path refid="library.sbt:_org.iq80.leveldb:leveldb:0.5.classpath"/>
+    <path refid="library.sbt:_org.iq80.leveldb:leveldb-api:0.5.classpath"/>
+    <path refid="library.sbt:_org.scala-lang:scala-reflect:2.10.0.classpath"/>
+    <path refid="library.sbt:_org.scalatest:scalatest_2.10:2.0.classpath"/>
+    <path refid="library.sbt:_org.scalaz:scalaz-concurrent_2.10:7.0.2.classpath"/>
+    <path refid="library.sbt:_org.scalaz:scalaz-core_2.10:7.0.2.classpath"/>
+    <path refid="library.sbt:_org.scalaz:scalaz-effect_2.10:7.0.2.classpath"/>
+    <path refid="library.sbt:_org.slf4j:log4j-over-slf4j:1.7.1.classpath"/>
+    <path refid="library.sbt:_org.slf4j:slf4j-api:1.7.5.classpath"/>
+    <path refid="library.sbt:_org.specs2:specs2_2.10:2.2.3.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-cluster_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-contrib_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-multi-node-testkit_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_com.typesafe.akka:akka-remote_2.10:2.3.2.classpath"/>
+    <path refid="library.sbt:_io.netty:netty:3.8.0.final.classpath"/>
+    <path refid="library.sbt:_log4j:log4j:1.2.15.classpath"/>
+    <path refid="library.sbt:_org.fusesource:sigar:1.6.4.classpath"/>
+    <path refid="library.sbt:_org.uncommons.maths:uncommons-maths:1.2.2a.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cluster_gpa">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cluster_gpa">
+    <patternset refid="excluded.from.module.cluster_gpa"/>
+  </patternset>
+  
+  <path id="cluster_gpa.module.sourcepath">
+    <dirset dir="${module.cluster_gpa.basedir}/../../../Cluster_GPA_Cassandra">
+      <include name="src/main/java"/>
+      <include name="target/scala-2.10/src_managed/main"/>
+      <include name="src/main/scala"/>
+      <include name="target/scala-2.10/resource_managed/main"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="cluster_gpa.module.test.sourcepath">
+    <dirset dir="${module.cluster_gpa.basedir}/../../../Cluster_GPA_Cassandra">
+      <include name="src/test/java"/>
+      <include name="src/test/scala"/>
+      <include name="target/scala-2.10/src_managed/test"/>
+      <include name="src/test/resources"/>
+      <include name="target/scala-2.10/resource_managed/test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cluster_gpa" depends="compile.module.cluster_gpa.production,compile.module.cluster_gpa.tests" description="Compile module cluster_gpa"/>
+  
+  <target name="compile.module.cluster_gpa.production" depends="register.custom.compilers" description="Compile module cluster_gpa; production classes">
+    <mkdir dir="${cluster_gpa.output.dir}"/>
+    <javac2 destdir="${cluster_gpa.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cluster_gpa}/javac">
+      <compilerarg line="${compiler.args.cluster_gpa}"/>
+      <bootclasspath refid="cluster_gpa.module.bootclasspath"/>
+      <classpath refid="cluster_gpa.module.production.classpath"/>
+      <src refid="cluster_gpa.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cluster_gpa"/>
+    </javac2>
+    
+    <copy todir="${cluster_gpa.output.dir}">
+      <fileset dir="${module.cluster_gpa.basedir}/../../src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cluster_gpa.basedir}/../../target/scala-2.10/src_managed/main">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cluster_gpa.basedir}/../../src/main/scala">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cluster_gpa.basedir}/../../target/scala-2.10/resource_managed/main">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cluster_gpa.basedir}/../../src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cluster_gpa.tests" depends="register.custom.compilers,compile.module.cluster_gpa.production" description="compile module cluster_gpa; test classes" unless="skip.tests">
+    <mkdir dir="${cluster_gpa.testoutput.dir}"/>
+    <javac2 destdir="${cluster_gpa.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cluster_gpa}/javac">
+      <compilerarg line="${compiler.args.cluster_gpa}"/>
+      <bootclasspath refid="cluster_gpa.module.bootclasspath"/>
+      <classpath refid="cluster_gpa.module.classpath"/>
+      <src refid="cluster_gpa.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cluster_gpa"/>
+    </javac2>
+    
+    <copy todir="${cluster_gpa.testoutput.dir}">
+      <fileset dir="${module.cluster_gpa.basedir}/../../src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cluster_gpa.basedir}/../../src/test/scala">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cluster_gpa.basedir}/../../target/scala-2.10/src_managed/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cluster_gpa.basedir}/../../src/test/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cluster_gpa.basedir}/../../target/scala-2.10/resource_managed/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.cluster_gpa" description="cleanup module">
+    <delete dir="${cluster_gpa.output.dir}"/>
+    <delete dir="${cluster_gpa.testoutput.dir}"/>
+  </target>
+</project>
