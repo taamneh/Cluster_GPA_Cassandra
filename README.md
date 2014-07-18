@@ -10,7 +10,7 @@ Prerequisites
 
   - Set up cassandra on multiple machines
   - Run Cassandra cluster on each machine:  ".\cassandra" from inside the cassandra bin folder   
-  - In reference.conf file from akka application: change the contact point to the machine where you have cassandra up and running: contact-points = ["127.0.0.1", ...]
+  - In reference.conf file from akka application: change the contact point for both{cassandra-journal, and cassandra-snapshoot} to the machine where you have cassandra up and running: contact-points = ["127.0.0.1", ...]
 
 To run it on differnt machines:
   - Copy the code on each machine
